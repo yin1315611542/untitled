@@ -27,13 +27,13 @@ import java.util.UUID;
 public class Discovery extends AbstractAggregateRoot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    String uuid;
+    private String uuid;
 
-    String type;
+    private String type;
 
-    LocalDateTime createTime;
+    private LocalDateTime createTime;
 
     public Discovery() {
     }
@@ -43,6 +43,14 @@ public class Discovery extends AbstractAggregateRoot {
         this.type = type;
         this.createTime = LocalDateTime.now();
         this.registerEvent(new DiscoveryEvent());
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getType() {

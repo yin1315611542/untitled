@@ -17,14 +17,18 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class UserRecordService {
 
-    private final RecordRepository recordRepository;
+//    private final RecordRepository recordRepository;
 
-    @EventListener
-    public void addRecord(UserEvent userEvent){
-        UserRecord userRecord = new UserRecord();
-        userRecord.setOperatingContent("user被创建了");
-        userRecord.setCreateDate(LocalDateTime.now());
-        recordRepository.save(userRecord);
+//    @EventListener
+//    public void addRecord(UserEvent userEvent){
+//        UserRecord userRecord = new UserRecord();
+//        userRecord.setOperatingContent("user被创建了");
+//        userRecord.setCreateDate(LocalDateTime.now());
+//        recordRepository.save(userRecord);
+//    }
+    public int aspect(){
+        System.out.println("执行操作");
+        return 1;
     }
 
 }

@@ -9,8 +9,14 @@ import org.springframework.context.event.EventListener;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.event.TransactionalEventListener;
+import org.springframework.util.CollectionUtils;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 import static java.lang.System.out;
 
@@ -28,6 +34,7 @@ public class TopologyServices {
     @Autowired
     private RedisTemplate redisTemplate;
 
+
     public void save(){
         Topologys topologys = new Topologys();
         for (Long i = 10L; i <20L ; i++) {
@@ -41,19 +48,19 @@ public class TopologyServices {
         });
     }
 
-    @TransactionalEventListener
-    public void send(DiscoveryEvent discoveryEvent){
-        Topologys topologys = new Topologys();
-        topologys.setId(LocalDateTime.now().getSecond());
-        topologys.setType("全网发现");
-        topologys.setLocalDateTime(LocalDateTime.now());
-        topologyRepositorys.save(topologys);
-        log.info("向redis发送服务1");
-    }
+//    @EventListener
+//    public void send(DiscoveryEvent discoveryEvent){
+//        Topologys topologys = new Topologys();
+//        topologys.setId(LocalDateTime.now().getSecond());
+//        topologys.setType("全网发现");
+//        topologys.setLocalDateTime(LocalDateTime.now());
+//        topologyRepositorys.save(topologys);
+//        log.info("向redis发送服务1");
+//    }
 
-    @EventListener
+    @TransactionalEventListener
     public void send2(DiscoveryEvent discoveryEvent){
-        redisTemplate.convertAndSend("discovery","222");
+        redisTemplate.convertAndSend("discovery","2222");
         log.info("向redis发送服务2");
     }
 

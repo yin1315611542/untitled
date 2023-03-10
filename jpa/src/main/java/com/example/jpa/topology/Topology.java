@@ -28,7 +28,17 @@ public class Topology {
 
     LocalDateTime localDateTime;
 
+    String uuid;
+
     public Topology() {
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public Long getId() {
