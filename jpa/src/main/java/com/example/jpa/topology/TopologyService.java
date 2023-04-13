@@ -60,7 +60,6 @@ public class TopologyService {
     @EventListener
     @Async
     @Order(0)
-    @Transactional(propagation = Propagation)
     public void saveLog(DiscoveryEvent discoveryEvent){
         Topology topology = new Topology();
         topology.setType("发现日志");

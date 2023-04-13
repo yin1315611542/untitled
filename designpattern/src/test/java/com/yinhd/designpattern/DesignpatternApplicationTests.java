@@ -8,6 +8,7 @@ class DesignpatternApplicationTests {
 
     @Test
     void contextLoads() {
+
     }
 
 }

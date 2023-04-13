@@ -16,7 +16,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
  * @Author: yinhd
  * @create: 2023-02-06 16:08
  **/
-@SpringBootApplication
+
 public class ListenerTest {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
