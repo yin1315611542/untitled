@@ -1,0 +1,8 @@
+# 依赖于oracle官方JDK8
+FROM openjdk:8-jdk-alpine
+# 将本地路径/tmp挂载到容器
+VOLUME /tmp
+# 拷贝jar包 eureka-server.jar为目标jar包，重命名为app.jar
+COPY eureka-server.jar app.jar
+# 运行jar包
+ENTRYPOINT [ "java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app.jar" ]
