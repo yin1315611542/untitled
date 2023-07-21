@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.lang.reflect.Field;
@@ -22,8 +20,8 @@ class JpaApplicationTests {
 
     @Autowired
     DiscoveryService discoveryService;
-    @Autowired
-    RedisTemplate redisTemplate;
+//    @Autowired
+//    RedisTemplate redisTemplate;
     @Autowired
     @Qualifier("topology2")
     TopologyServices topologyService;
@@ -37,23 +35,23 @@ class JpaApplicationTests {
 //        discoveryService.createDiscovery();
 //    }
 
-    @Test
-    void redisTest(){
-        ValueOperations valueOperations = redisTemplate.opsForValue();
-        valueOperations.set("name","jon");
-        valueOperations.get("name");
-        System.out.println(valueOperations.get("name"));
-    }
+//    @Test
+//    void redisTest(){
+//        ValueOperations valueOperations = redisTemplate.opsForValue();
+//        valueOperations.set("name","jon");
+//        valueOperations.get("name");
+//        System.out.println(valueOperations.get("name"));
+//    }
 
-    @Test
-    void redisTest2(){
-        redisTemplate.convertAndSend("discovery",",,,");
-    }
-
-    @Test
-    void redisTest3(){
-        redisTemplate.convertAndSend("discovery",",,,");
-    }
+//    @Test
+//    void redisTest2(){
+//        redisTemplate.convertAndSend("discovery",",,,");
+//    }
+//
+//    @Test
+//    void redisTest3(){
+//        redisTemplate.convertAndSend("discovery",",,,");
+//    }
 
     @Test
     void redisTest4(){
