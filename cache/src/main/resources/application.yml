@@ -8,8 +8,9 @@ spring:
       cache-null-values: false #是否缓存空值
   redis:
     port: 38019
-    host: 10.10.20.142
-    lettuce:
+    host: 10.10.20.134
+    password: Goldencis@123
+    jedis:
       pool:
         max-active: 8
         max-wait: -1
@@ -17,11 +18,12 @@ spring:
         min-idle: 0
     timeout: 10000  #redis 连接超时时间ms
     database: 1
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/redisdb?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://10.10.20.134:3306/asset_hub?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
     username: root
-    password: 123456
+    password: Goldencis1234#
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       minimum-idle: 1
