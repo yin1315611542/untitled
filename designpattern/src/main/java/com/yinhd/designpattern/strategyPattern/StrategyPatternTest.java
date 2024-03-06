@@ -12,7 +12,7 @@ import com.yinhd.designpattern.strategyPattern.static_strategy.StrategyFactory;
 
 public class StrategyPatternTest {
     public static void main(String[] args) {
-        //静态方式
+        // 这里的“运行时动态”指的是，我们事先并不知道会使用哪个策略，而是在程序运行期间，根据配置、用户输入、计算结果生成的type等这些不确定因素，动态决定使用哪种策略
         String type = "A";
         Strategy strategy = StrategyFactory.getStrategy(type);
         strategy.algorithmInterface();
@@ -21,7 +21,7 @@ public class StrategyPatternTest {
         Strategy strategy2 = StrategyFactory.getStrategy(type2);
         strategy2.algorithmInterface();
 
-        //非静态方式
+        //策略器的方式，直接引入一个策略器，由策略器进行策略的选择以及策略的执行
         Strategytor strategytor = new Strategytor();
         strategytor.strategyDo(type);
     }
