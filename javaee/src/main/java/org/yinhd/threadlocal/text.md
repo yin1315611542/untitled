@@ -1,0 +1,12 @@
+# 面试题
+## threadLocal是什么？
+threadLocal实际上是线程中threadlocals的key（threadlocals是线程内部的一个ThreadMap），它依赖于Thread类中的ThreadLocalMap，当调用set(T value)时，ThreadLocal将自身作为Key，值作为Value存储到Thread类中的ThreadLocalMap中，这就相当于所有线程读写的都是自身的一个私有副本，线程之间的数据是隔离的，因此保证了线程并发安全问题，另外threadLocal还能简化参数传递的繁杂性； 
+注意：一个ThreadLocal只能标记标记一种类型，比如标记ThreadLocal<SimpleDateFormat> dateFormatThreadLocal
+= new ThreadLocal<SimpleDateFormat>()
+## ThreadLocal为什么引起内存泄漏？
+ThreadLocal的出现内存泄露问题一般是在与长时间存在的线程搭配使用时出现的，线程中的ThreadMAp的key是一种弱引用，当遇到GC时会被剔除内存，而ThreadLocal的Value普遍存在的强引用，即使遇到GC也不会被剔除
+因此，再一次GC时会造成一种key为null,value缺具体存在的一种情况，也就是内存泄漏。如果线程存在的时间极其的短，也就是说在gc发生之前，此线程就被销毁，一般不会发生内存泄漏。
+## 如何解决内存泄漏问题？
+有两种方法：
+1. 如果threadLocal所指定的线程独享对象是一种类似SimpleDateFormat的对象，可以采用static final等方式对ThreadLocal进行声明，避免ThreadLocal频繁的创建，
+2. 如果threadLocal所指定的线程独享对象是类似用户信息的对象，则采用remove()的当时。
