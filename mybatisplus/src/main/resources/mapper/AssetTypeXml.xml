@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhd.mapper.AssetTypeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yinhd.entity.AssetType">
+        <id column="id" property="id" />
+        <result column="type_name" property="typeName" />
+        <result column="type_level" property="typeLevel" />
+        <result column="type_parent" property="typeParent" />
+        <result column="type_icon" property="typeIcon" />
+        <result column="is_internal" property="isInternal" />
+        <result column="update_rule" property="updateRule" />
+        <result column="physics" property="physics" />
+        <result column="scope" property="scope" />
+        <result column="is_autorecognize" property="isAutorecognize" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, type_name, type_level, type_parent, type_icon, is_internal, update_rule, physics, scope, is_autorecognize
+    </sql>
+
+</mapper>

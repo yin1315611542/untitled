@@ -20,13 +20,13 @@ public class Main {
         //这里按着给的注解修改参数即可
 
 //手动配置数据源
-        String url = "jdbc:mysql://localhost:3306/redisdb?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8"; //注意修改数据库名
+        String url = "jdbc:mysql://10.10.20.134:3306/vops_asset_hub?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8"; //注意修改数据库名
         String name = "root";
-        String password = "123456";
+        String password = "Goldencis1234#";
         String m = "/mybatisplus";
 
 //数据库表的设置
-        List<String> listTable = Arrays.asList("user_table"); //设置需要自动代码生成的表名
+        List<String> listTable = Arrays.asList("t_asset_type"); //设置需要自动代码生成的表名
         List<String> listTableSuffix = Arrays.asList("_b"); //设置 过滤 表的后缀
         List<String> listTablePrefix = Arrays.asList("t_", "c_"); //设置 过滤 表的后缀
 

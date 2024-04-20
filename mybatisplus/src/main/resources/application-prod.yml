@@ -1,12 +1,14 @@
 spring:
+  application:
+    name: cache-redis-demo
   cache:
     type: redis
     redis:
-      time-to-live: 20000 #缓存超时时间ms  -1 表示永久有效
+      time-to-live: 20000 #缓存超时时间ms
       cache-null-values: false #是否缓存空值
   redis:
     port: 38019
-    host: 10.10.20.134
+    host: 10.10.20.142
     lettuce:
       pool:
         max-active: 8
@@ -15,12 +17,11 @@ spring:
         min-idle: 0
     timeout: 10000  #redis 连接超时时间ms
     database: 1
-    password: Goldencis@123
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://10.10.20.134:3306/test?allowPublicKeyRetrieval=true&&useUnicode=true&allowMultiQueries=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://localhost:3306/redisdb?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
     username: root
-    password: Goldencis1234#
+    password: 123456
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       minimum-idle: 1
@@ -38,4 +39,5 @@ spring:
     properties:
       hibernate:
         format-sql: true
-
+server:
+  port: 8080

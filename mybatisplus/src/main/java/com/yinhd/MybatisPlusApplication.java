@@ -1,14 +1,15 @@
-package org.example;
+package com.yinhd;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 
+
+
 @EnableCaching
 @SpringBootApplication
-public class CacheApplication {
-
+public class MybatisPlusApplication {
     public static void main(String[] args) {
-        SpringApplication.run(CacheApplication.class, args);
+        SpringApplication.run(MybatisPlusApplication.class, args);
     }
 }
