@@ -2,7 +2,7 @@ spring:
   cache:
     type: redis
     redis:
-      time-to-live: 20000 #缓存超时时间ms  -1 表示永久有效
+      time-to-live: -1 #缓存超时时间ms  -1 表示永久有效
       cache-null-values: false #是否缓存空值
   redis:
     port: 38019
